@@ -1,6 +1,6 @@
 ## @ripio/abi-wrappers
 
-Low-level RCN diaspore smart contract wrappers generated using @0x/abi-gen with custom diaspore template. These low-level wrappers are imported by other packages and application developers are not expected to import this package directly.
+Low-level RCN diaspore smart contract wrappers generated using @ripio/marmojs-sdk with custom diaspore template. 
 
 ## Installation
 
@@ -11,13 +11,13 @@ yarn add @ripio/abi-wrappers
 **Import**
 
 ```typescript
-import * as wrappers from '@ripio/abi-wrappers';
+import * as wrappers from '@ripio/marmo-abi-wrappers';
 ```
 
 or
 
 ```javascript
-var wrappers = require('@ripio/abi-wrappers');
+var wrappers = require('@ripio/marmo-abi-wrappers');
 ```
 
 ## Contributing
