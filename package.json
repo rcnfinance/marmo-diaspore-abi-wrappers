@@ -1,0 +1,44 @@
+{
+  "name": "@jpgonzalezra/marmo-abi-wrappers",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=6.12"
+  },
+  "description": "Low-level diaspore smart contract wrappers generated using @jpgonzalez/marmojs-sdk",
+  "main": "lib/src/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc -b && yarn uglify",
+    "build:ci": "yarn build",
+    "lint": "tslint --format stylish --project .",
+    "uglify": "node_modules/uglifyjs-folder/cli.js lib/src/wrappers -eo lib/src/wrappers --pattern \"**/*.js,!**/*min.js\" -x .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ripio/marmo-diaspore-abi-wrappers.git"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ripio/marmo-diaspore-abi-wrappers/issues"
+  },
+  "homepage": "https://github.com/ripio/marmo-diaspore-abi-wrappers/blob/master/README.md",
+  "devDependencies": {
+    "@0x/types": "2.2.2",
+    "@types/lodash": "^4.14.119",
+    "@types/node": "^10.12.18",
+    "tslint": "5.11.0",
+    "uglifyjs-folder": "^1.5.1"
+  },
+  "dependencies": {
+    "@0x/utils": "^4.3.1",
+    "ethereum-types": "^2.1.2",
+    "ethers": "^4.0.27",
+    "lodash": "^4.17.11",
+    "typescript": "3.2.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
