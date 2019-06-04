@@ -78,7 +78,7 @@ export class LoanManagerMarmoContract {
     }
     public cosign = {
         async sendTransactionAsync(
-            _id: BigNumber,
+            _id: string,
             _cost: BigNumber,
             txData: Partial<TxData> = {},
             estimateGasFactor?: number,
