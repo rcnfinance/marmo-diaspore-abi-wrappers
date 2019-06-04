@@ -5,7 +5,7 @@ import * as ethers from 'ethers';
 
 export class DebtEngineMarmoContract {
 
-    public approve = {
+    /*public approve = {
         async sendTransactionAsync(
             _operator: string,
             _assetId: BigNumber,
@@ -189,5 +189,5 @@ export class DebtEngineMarmoContract {
         ): Promise<Response> {
             //TODO: 
         }
-    };
+    };*/
 }
