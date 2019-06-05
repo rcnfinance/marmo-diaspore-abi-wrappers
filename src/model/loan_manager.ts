@@ -97,7 +97,7 @@ export class LoanManager extends Contract {
 
 
     constructor(wallet: Wallet, provider: Provider) {
-        super("");
+        super();
         this._wallet = wallet;
         this._provider = provider;
     }

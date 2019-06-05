@@ -1,7 +1,7 @@
 import { TxData } from 'ethereum-types';
 import { BigNumber } from '@0x/utils';
 import { Response } from '../Response';
-import { LoanManager } from '../model/loan_manager';
+import { LoanManager } from './../model/loan_manager';
 import { Provider, Wallet } from 'marmojs';
 
 export class LoanManagerMarmoContract {
