@@ -104,12 +104,12 @@ export class LoanManagerMarmoContract {
         ): Promise<Response> {
             const self = this as any as LoanManagerMarmoContract;
             const intentId = await self._loanManager.settleLend(
-                _requestData, 
-                _loanData, 
-                _cosigner, 
-                _maxCosignerCost, 
-                _cosignerData, 
-                _oracleData, 
+                _requestData,
+                _loanData,
+                _cosigner,
+                _maxCosignerCost,
+                _cosignerData,
+                _oracleData,
                 _creatorSig,
                 _borrowerSig);
             return new Response(intentId, undefined);
@@ -129,8 +129,8 @@ export class LoanManagerMarmoContract {
     }
 
     constructor(contractAddress: Promise<string>, wallet: Wallet, provider: Provider) {
-        this._loanManager = new LoanManager(wallet, provider);
-        this._loanManager.init(contractAddress);
+        this._loanManager = new LoanManager();
+        this._loanManager.init(contractAddress, wallet, provider);
     }
 
 } 

@@ -10,10 +10,18 @@ import {
 
 export class LoanManager extends Contract {
 
-    private _wallet: Wallet;
-    private _provider: Provider;
+    private _wallet?: Wallet;
+    private _provider?: Provider;
+
+    constructor() {
+        super()
+    }
 
     private async execute(intentAction: IntentAction): Promise<string> {
+        if (this._wallet === undefined || this._provider === undefined) {
+            return Promise.resolve<string>("0x");
+        }
+
         const intent: Intent = new IntentBuilder().withIntentAction(intentAction).build();
         const signedIntent = this._wallet.sign(intent);
         await signedIntent.relay(this._provider);
@@ -95,15 +103,10 @@ export class LoanManager extends Contract {
         return this.execute(intentAction);
     }
 
-
-    constructor(wallet: Wallet, provider: Provider) {
-        super();
+    public async init(contractAddress: Promise<string>, wallet: Wallet, provider: Provider) {
+        this.contractAddress = await contractAddress;
         this._wallet = wallet;
         this._provider = provider;
-    }
-
-    public async init(contractAddress: Promise<string>) {
-        this.contractAddress = await contractAddress;
     }
 
 }
