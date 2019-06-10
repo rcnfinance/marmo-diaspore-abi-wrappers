@@ -3072,10 +3072,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-marmojs@0.2.8:
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/marmojs/-/marmojs-0.2.8.tgz#80d60ca7ae17c8f094ad02dfe284e9104ed48f19"
-  integrity sha512-7SsdKUhkRCf4tmlRgWl0Iomx9W+j2XZNmHiheFXBylJs8CaOxKLL8VBZnXCPLyjDG9688TBdmq9Mm9Tp8v2ePA==
+marmojs@0.2.9:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/marmojs/-/marmojs-0.2.9.tgz#8d7a04d0fe84df3fe9269fb1bbda701c8d7794cd"
+  integrity sha512-g64ZZNGW5RITufygn+8iDVOTo72BiL/LJAPVzaXFBjD1JeBuftnS2vJo1fzEGeVL9MZv3dj+OqG0H8pYCo2CcA==
   dependencies:
     "@types/chai" "^4.1.7"
     "@types/ethereumjs-abi" "^0.6.1"

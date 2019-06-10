@@ -2,7 +2,7 @@ import { BlockParam, BlockParamLiteral, CallData, ContractAbi, ContractArtifact,
 import { BigNumber, classUtils, logUtils, providerUtils } from '@0x/utils';
 import { SimpleContractArtifact } from '@0x/types';
 import { Response } from '../Response';
-import * as ethers from 'ethers';
+// import * as ethers from 'ethers';
 
 export class InstallmentsModelMarmoContract {
 
