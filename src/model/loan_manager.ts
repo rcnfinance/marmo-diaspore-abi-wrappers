@@ -39,7 +39,7 @@ export class LoanManager extends Contract {
         _loanData: string
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("requestLoan", ['uint128', 'address', 'address', 'address', 'uint256', 'uint64', 'bytes'])
-            .encode([_amount, _model, _oracle, _borrower, _salt, _expiration, _loanData]);
+            .encode([_amount.toString(), _model, _oracle, _borrower, _salt.toString(), _expiration.toString(), _loanData]);
         return this.execute(intentAction);
     }
 
