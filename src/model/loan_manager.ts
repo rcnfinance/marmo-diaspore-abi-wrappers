@@ -29,7 +29,7 @@ export class LoanManager extends Contract {
         return Promise.resolve<string>(intent.id(this._wallet));
     }
 
-    async requestLoan(
+    public async requestLoan(
         _amount: BigNumber,
         _model: string,
         _oracle: string,
@@ -43,19 +43,19 @@ export class LoanManager extends Contract {
         return this.execute(intentAction);
     }
 
-    async approveRequest(_id: string): Promise<string> {
+    public async approveRequest(_id: string): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("approveRequest", ['bytes32'])
             .encode([_id]);
         return this.execute(intentAction);
     }
 
-    async registerApproveRequest(_id: string, _signature: string): Promise<string> {
+    public async registerApproveRequest(_id: string, _signature: string): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("registerApproveRequest", ['bytes32', 'bytes'])
             .encode([_id, _signature]);
         return this.execute(intentAction);
     }
 
-    async lend(
+    public async lend(
         _id: string,
         _oracleData: string,
         _cosigner: string,
@@ -67,19 +67,19 @@ export class LoanManager extends Contract {
         return this.execute(intentAction);
     }
 
-    async cancel(_id: string): Promise<string> {
+    public async cancel(_id: string): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("cancel", ['bytes32'])
             .encode([_id]);
         return this.execute(intentAction);
     }
 
-    async cosign(_id: string, _cost: BigNumber): Promise<string> {
+    public async cosign(_id: string, _cost: BigNumber): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("cosign", ['bytes32', 'uint256'])
             .encode([_id, _cost]);
         return this.execute(intentAction);
     }
 
-    async settleLend(
+    public async settleLend(
         _requestData: string,
         _loanData: string,
         _cosigner: string,
@@ -94,7 +94,7 @@ export class LoanManager extends Contract {
         return this.execute(intentAction);
     }
 
-    async settleCancel(
+    public async settleCancel(
         _requestData: string,
         _loanData: string,
     ): Promise<string> {

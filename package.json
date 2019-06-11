@@ -1,6 +1,6 @@
 {
   "name": "@jpgonzalezra/marmo-abi-wrappers",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "engines": {
     "node": ">=6.12"
   },
