@@ -19,19 +19,17 @@ export class LoanManagerMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.requestLoan(_amount, _model, _oracle, _borrower, _salt, _expiration, _loanData);
+        const intentId = await this._loanManager.requestLoan(_amount, _model, _oracle, _borrower, _salt, _expiration, _loanData);
         return new Response(intentId, undefined);
     }
-
 
     public async approveRequest(
         _id: string,
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.approveRequest(_id);
+        
+        const intentId = await this._loanManager.approveRequest(_id);
         return new Response(intentId, undefined);
     }
 
@@ -41,8 +39,8 @@ export class LoanManagerMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.registerApproveRequest(_id, _signature);
+        
+        const intentId = await this._loanManager.registerApproveRequest(_id, _signature);
         return new Response(intentId, undefined);
     }
 
@@ -55,8 +53,7 @@ export class LoanManagerMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.lend(_id, _oracleData, _cosigner, _cosignerLimit, _cosignerData);
+        const intentId = await this._loanManager.lend(_id, _oracleData, _cosigner, _cosignerLimit, _cosignerData);
         return new Response(intentId, undefined);
     }
 
@@ -65,8 +62,7 @@ export class LoanManagerMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.cancel(_id);
+        const intentId = await this._loanManager.cancel(_id);
         return new Response(intentId, undefined);
     }
 
@@ -76,8 +72,7 @@ export class LoanManagerMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.cosign(_id, _cost);
+        const intentId = await this._loanManager.cosign(_id, _cost);
         return new Response(intentId, undefined);
     }
 
@@ -93,8 +88,7 @@ export class LoanManagerMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.settleLend(
+        const intentId = await this._loanManager.settleLend(
             _requestData,
             _loanData,
             _cosigner,
@@ -112,8 +106,7 @@ export class LoanManagerMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const self = this as any as LoanManagerMarmoContract;
-        const intentId = await self._loanManager.settleCancel(_requestData, _loanData);
+        const intentId = await this._loanManager.settleCancel(_requestData, _loanData);
         return new Response(intentId, undefined);
     }
 
