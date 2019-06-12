@@ -2,32 +2,11 @@ import { BigNumber } from '@0x/utils';
 import {
     Intent,
     IntentAction,
-    IntentBuilder,
-    Contract,
-    Provider,
-    Wallet
+    IntentBuilder
 } from 'marmojs';
+import { AbstractContract } from './abstract_contract';
 
-export class LoanManager extends Contract {
-
-    private _wallet?: Wallet;
-    private _provider?: Provider;
-
-    constructor() {
-        super()
-    }
-
-    private async execute(intentAction: IntentAction): Promise<string> {
-        if (this._wallet === undefined || this._provider === undefined) {
-            return Promise.resolve<string>("0x");
-        }
-
-        const intent: Intent = new IntentBuilder().withIntentAction(intentAction).build();
-        const signedIntent = this._wallet.sign(intent);
-        await signedIntent.relay(this._provider);
-
-        return Promise.resolve<string>(intent.id(this._wallet));
-    }
+export class LoanManager extends AbstractContract {
 
     public async requestLoan(
         _amount: BigNumber,
@@ -63,7 +42,7 @@ export class LoanManager extends Contract {
         _cosignerData: string,
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("lend", ['bytes32', 'bytes', 'address', 'uint256', 'bytes'])
-            .encode([_id, _oracleData, _cosigner, _cosignerLimit, _cosignerData]);
+            .encode([_id, _oracleData, _cosigner, _cosignerLimit.toString(), _cosignerData]);
         return this.execute(intentAction);
     }
 
@@ -75,7 +54,7 @@ export class LoanManager extends Contract {
 
     public async cosign(_id: string, _cost: BigNumber): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("cosign", ['bytes32', 'uint256'])
-            .encode([_id, _cost]);
+            .encode([_id, _cost.toString()]);
         return this.execute(intentAction);
     }
 
@@ -90,7 +69,7 @@ export class LoanManager extends Contract {
         _borrowerSig: string,
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("settleLend", ['bytes', 'bytes', 'address', 'uint256', 'bytes', 'bytes', 'bytes', 'bytes'])
-            .encode([_requestData, _loanData, _cosigner, _maxCosignerCost, _cosignerData, _oracleData, _creatorSig, _borrowerSig]);
+            .encode([_requestData, _loanData, _cosigner, _maxCosignerCost.toString(), _cosignerData, _oracleData, _creatorSig, _borrowerSig]);
         return this.execute(intentAction);
     }
 
@@ -102,11 +81,5 @@ export class LoanManager extends Contract {
             .encode([_requestData, _loanData]);
         return this.execute(intentAction);
     }
-
-    public async init(contractAddress: Promise<string>, wallet: Wallet, provider: Provider) {
-        this.contractAddress = await contractAddress;
-        this._wallet = wallet;
-        this._provider = provider;
-    }
-
+  
 }
