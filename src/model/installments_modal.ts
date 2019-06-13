@@ -1,5 +1,5 @@
-import BigNumber = require("bn.js");
-import { IntentAction, Contract } from 'marmojs';
+import { BigNumber } from '@0x/utils';
+import { IntentAction } from 'marmojs';
 import { AbstractContract } from "./abstract_contract";
 
 export class InstallmentsModel extends AbstractContract {
