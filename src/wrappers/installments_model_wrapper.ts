@@ -14,7 +14,7 @@ export class InstallmentsModelMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const intentId = await this._installmentModel.addPay(id, amount);
+        const intentId = await this._installmentModel.addPaid(id, amount);
         return new Response(intentId, undefined);
     }
 
@@ -34,7 +34,7 @@ export class InstallmentsModelMarmoContract {
         txData: Partial<TxData> = {},
         estimateGasFactor?: number,
     ): Promise<Response> {
-        const intentId = await this._installmentModel.fixClock(id);
+        const intentId = await this._installmentModel.fixClock(id, target);
         return new Response(intentId, undefined);
     }
 
