@@ -9,7 +9,7 @@ export class ERC721 extends AbstractContract {
         _assetId: BigNumber
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("approve", ['address', 'uint256'])
-            .encode([_operator, _assetId]);
+            .encode([_operator, _assetId.toString()]);
         return this.execute(intentAction);
     }
 
@@ -19,7 +19,7 @@ export class ERC721 extends AbstractContract {
         _assetId: BigNumber
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("transferFrom", ['address', 'address', 'uint256'])
-            .encode([_from, _to, _assetId]);
+            .encode([_from, _to, _assetId.toString()]);
         return this.execute(intentAction);
     }
 
@@ -29,7 +29,7 @@ export class ERC721 extends AbstractContract {
         _assetId: BigNumber
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("safeTransferFrom1", ['address', 'address', 'uint256'])
-            .encode([_from, _to, _assetId]);
+            .encode([_from, _to, _assetId.toString()]);
         return this.execute(intentAction);
     }
 
@@ -40,7 +40,7 @@ export class ERC721 extends AbstractContract {
         _userData: string
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("safeTransferFrom2", ['address', 'address', 'uint256', 'bytes'])
-            .encode([_from, _to, _assetId, _userData]);
+            .encode([_from, _to, _assetId.toString(), _userData]);
         return this.execute(intentAction);
     }
 

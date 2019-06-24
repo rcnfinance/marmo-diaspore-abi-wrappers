@@ -9,7 +9,7 @@ export class InstallmentsModel extends AbstractContract {
         amount: BigNumber
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("addPaid", ['bytes32', 'uint256'])
-            .encode([id, amount]);
+            .encode([id, amount.toString()]);
         return this.execute(intentAction);
     }
 
@@ -18,7 +18,7 @@ export class InstallmentsModel extends AbstractContract {
         amount: BigNumber
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("addDebt", ['bytes32', 'uint256'])
-            .encode([id, amount]);
+            .encode([id, amount.toString()]);
         return this.execute(intentAction);
     }
 
@@ -27,7 +27,7 @@ export class InstallmentsModel extends AbstractContract {
         target: BigNumber
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("fixClock", ['bytes32', 'uint256'])
-            .encode([id, target]);
+            .encode([id, target.toString()]);
         return this.execute(intentAction);
     }
 

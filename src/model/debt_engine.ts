@@ -24,7 +24,7 @@ export class DebtEngine extends ERC721 {
         _data: string
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("create2", ['address', 'address', 'address', 'uint256', 'bytes'])
-            .encode([_model, _owner, _oracle, _salt, _data]);
+            .encode([_model, _owner, _oracle, _salt.toString(), _data]);
         return this.execute(intentAction);
     }
 
@@ -36,7 +36,7 @@ export class DebtEngine extends ERC721 {
         _data: string
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("create3", ['address', 'address', 'address', 'uint256', 'bytes'])
-            .encode([_model, _owner, _oracle, _salt, _data]);
+            .encode([_model, _owner, _oracle, _salt.toString(), _data]);
         return this.execute(intentAction);
     }
 
@@ -47,7 +47,7 @@ export class DebtEngine extends ERC721 {
         _oracleData: string
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("pay", ['bytes32', 'uint256', 'address', 'bytes'])
-            .encode([_id, _amount, _origin, _oracleData]);
+            .encode([_id, _amount.toString(), _origin, _oracleData]);
         return this.execute(intentAction);
     }
 
@@ -58,7 +58,7 @@ export class DebtEngine extends ERC721 {
         _oracleData: string
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("payToken", ['bytes32', 'uint256', 'address', 'bytes'])
-            .encode([_id, _amount, _origin, _oracleData]);
+            .encode([_id, _amount.toString(), _origin, _oracleData]);
         return this.execute(intentAction);
     }
 
@@ -109,7 +109,7 @@ export class DebtEngine extends ERC721 {
         _amount: BigNumber
     ): Promise<string> {
         const intentAction: IntentAction = this.functionEncoder("withdrawPartial", ['address', 'address', 'uint256'])
-            .encode([_id, _to, _amount]);
+            .encode([_id, _to, _amount.toString()]);
         return this.execute(intentAction);
     }
 
