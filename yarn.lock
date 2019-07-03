@@ -1033,10 +1033,10 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
   integrity sha1-2TPOuSBdgr3PSIb2dCvcK03qFG0=
 
-marmojs@0.2.14:
-  version "0.2.14"
-  resolved "https://registry.yarnpkg.com/marmojs/-/marmojs-0.2.14.tgz#b5e5a8d19ddcd9b42a514a657008d320703f529d"
-  integrity sha512-W7INcUgD+U1ZhMTtcIX7aDO2y1T1R4XFlL6Nn04YYhQcUrlJtL1Mv9i7Y3W4KRALtGiCkJSAU2CGR9AyQF10gw==
+marmojs@0.2.18:
+  version "0.2.18"
+  resolved "https://registry.yarnpkg.com/marmojs/-/marmojs-0.2.18.tgz#175d66243891e5d5667af4b242e40e37cf8adce4"
+  integrity sha512-Y0Sg1e0+fahSGlE5n2v/pW/RIBmiAZgRdLZ2jKnpPBzAKsuPB4AWUb5w21XvwLAytwZD2TaUDmk+IEpev0JpOQ==
   dependencies:
     axios "^0.19.0"
     bignumber.js "^9.0.0"
